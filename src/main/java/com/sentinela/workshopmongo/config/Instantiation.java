@@ -2,6 +2,7 @@ package com.sentinela.workshopmongo.config;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -17,8 +18,6 @@ import com.sentinela.workshopmongo.repositories.UserRepository;
 @Configuration
 public class Instantiation implements CommandLineRunner {
 	
-	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-	
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -27,6 +26,9 @@ public class Instantiation implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
 		
 		userRepository.deleteAll();
 		postRepository.deleteAll();
