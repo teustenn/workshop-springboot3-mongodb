@@ -4,12 +4,14 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+import com.sentinela.workshopmongo.dto.AuthorDTO;
+
 public class Post implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
 	private String id;
-	private User author;
+	private AuthorDTO author;
 	private Date date;
 	private String title;
 	private String body;
@@ -17,7 +19,7 @@ public class Post implements Serializable {
 	public Post() {
 	}
 
-	public Post(String id, User author, Date date, String title, String body) {
+	public Post(String id, AuthorDTO author, Date date, String title, String body) {
 		this.id = id;
 		this.author = author;
 		this.date = date;
@@ -33,11 +35,11 @@ public class Post implements Serializable {
 		this.id = id;
 	}
 	
-	public User getAuthor() {
+	public AuthorDTO getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(User author) {
+	public void setAuthor(AuthorDTO author) {
 		this.author = author;
 	}
 
