@@ -1,10 +1,13 @@
 package com.sentinela.workshopmongo.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import com.sentinela.workshopmongo.dto.AuthorDTO;
+import com.sentinela.workshopmongo.dto.CommentDTO;
 
 public class Post implements Serializable {
 	
@@ -15,6 +18,8 @@ public class Post implements Serializable {
 	private Date date;
 	private String title;
 	private String body;
+	
+	private List<CommentDTO> comments = new ArrayList<>();	
 	
 	public Post() {
 	}
@@ -65,6 +70,14 @@ public class Post implements Serializable {
 
 	public void setBody(String body) {
 		this.body = body;
+	}
+	
+	public List<CommentDTO> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<CommentDTO> comments) {
+		this.comments = comments;
 	}
 
 	@Override
